@@ -1,0 +1,53 @@
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<div id="btnContainer">
+  <button class="btn" onclick="listView()"><i class="fa fa-bars"></i></button> 
+  <button class="btn active" onclick="gridView()"><i class="fa fa-th-large"></i></button>
+</div>
+<?php 
+
+	$categoryProductList = $this->getLayout()->createBlock("Magento\CatalogWidget\Block\Product\ProductsList");
+	$categoryProductList->setTitle("Category Product List");
+	$categoryProductList->setShowPager(1);
+	$categoryProductList->setShowPerPage(true);
+	$categoryProductList->setProductsPerPage(10);
+	$categoryProductList->setProductsCount(50);
+	$categoryProductList->setAvailableLimit(array(5=>5,10=>10,15=>15));
+	$categoryProductList->setTemplate("Magento_CatalogWidget::product/widget/content/grid.phtml");
+	$categoryProductList->setConditionsEncoded("^[`1`:^[`type`:`Magento||CatalogWidget||Model||Rule||Condition||Combine`,`aggregator`:`all`,`value`:`1`,`new_child`:``^],`1--1`:^[`type`:`Magento||CatalogWidget||Model||Rule||Condition||Product`,`attribute`:`category_ids`,`operator`:`==`,`value`:`3`^]^]");
+	$categoryProductList->setPageVarName("np");
+	echo $categoryProductList->toHtml();
+?>
+
+<script>
+// Get the elements with class="product-item"
+var elements = document.getElementsByClassName("product-item");
+
+// Declare a loop variable
+var i;
+
+// List View
+function listView() {
+  for (i = 0; i < elements.length; i++) {
+    elements[i].style.width = "100%";
+  }
+}
+
+// Grid View
+function gridView() {
+  for (i = 0; i < elements.length; i++) {
+    elements[i].style.width = "18.4%";
+  }
+}
+
+/* Optional: Add active class to the current button (highlight it) */
+var container = document.getElementById("btnContainer");
+var btns = container.getElementsByClassName("btn");
+for (var i = 0; i < btns.length; i++) {
+  btns[i].addEventListener("click", function() {
+    var current = document.getElementsByClassName("active");
+    current[0].className = current[0].className.replace(" active", "");
+    this.className += " active";
+  });
+}
+</script>
