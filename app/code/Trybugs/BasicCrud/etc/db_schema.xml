@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+<table name="trybug_contacts" resource="default" engine="innodb" comment="Trybugs Contacts Table">
+        <column xsi:type="int" name="id" padding="10" unsigned="true" nullable="false" identity="true"
+                comment="ID"/>
+       
+        <column xsi:type="varchar" name="name" nullable="false" length="150" default="simple" comment="Name"/>
+        <column xsi:type="text" name="content" nullable="false" comment="Content"/>
+        <column xsi:type="int" name="mobile" padding="20" unsigned="false" nullable="true" 
+                default="null" comment="Mobile Number"/>
+        <column xsi:type="int" name="status" padding="20" unsigned="false" nullable="false" 
+                default="1" comment="1 for enable, 2 for disable"/>
+        <column xsi:type="date" name="date" nullable="false"
+                identity="false" default="0" comment="Date"/>
+        <column xsi:type="varchar" name="image" nullable="false" length="150" default="" comment="contact image"/>
+
+        <column xsi:type="timestamp" name="created_at" on_update="false" nullable="false" default="CURRENT_TIMESTAMP"
+                comment="Creation Time"/>
+        <column xsi:type="timestamp" name="updated_at" on_update="true" nullable="false" default="CURRENT_TIMESTAMP"
+                comment="Update Time"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+
+    </table>
+</schema>

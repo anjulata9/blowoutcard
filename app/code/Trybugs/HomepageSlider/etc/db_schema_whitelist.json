@@ -1,0 +1,13 @@
+{
+    "homepage_slider_images": {
+        "column": {
+            "id": true,
+            "image_url": true,
+            "created_at": true,
+            "updated_at": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    }
+}

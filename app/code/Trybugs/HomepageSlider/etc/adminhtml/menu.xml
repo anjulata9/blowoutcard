@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Trybugs_HomepageSlider::slider" title="Slider" module="Trybugs_HomepageSlider" sortOrder="51" resource="Trybugs_HomepageSlider::slider"/>
+        <add id="Trybugs_HomepageSlider::homepage" title="Homepage Slider" module="Trybugs_HomepageSlider" sortOrder="10" action="homepageslider/post/index" resource="Trybugs_HomepageSlider::homepage" parent="Trybugs_HomepageSlider::slider"/>
+        <!-- <add id="Trybugs_HomepageSlider::hello_configuration" title="Configuration" module="Trybugs_HomepageSlider" sortOrder="99" parent="Trybugs_HomepageSlider::helloworld" action="adminhtml/system_config/edit/section/helloworld" resource="Trybugs_HomepageSlider::helloworld_configuration"/> -->
+    </menu>
+</config>

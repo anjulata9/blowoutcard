@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../lib/internal/Magento/Framework/ObjectManager/etc/config.xsd">
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="trybugs_homapage_slider_homepage_listing_data_source" xsi:type="string">Trybugs\HomepageSlider\Model\ResourceModel\SliderImage\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    <virtualType name="Trybugs\HomepageSlider\Model\ResourceModel\SliderImage\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">trybugs_homepageslider_sliderimage</argument>
+            <argument name="resourceModel" xsi:type="string">Trybugs\HomepageSlider\Model\ResourceModel\SliderImage</argument>
+        </arguments>
+    </virtualType>
+</config>

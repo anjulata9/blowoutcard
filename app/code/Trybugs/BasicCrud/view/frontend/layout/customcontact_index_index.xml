@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<page layout="1column" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <title>Trybugs Contact List</title>
+        <css src="Trybugs_BasicCrud::customcolor.css"/>
+    </head>
+    <body>
+        <referenceBlock name="navigation.sections" remove="false" />
+        <referenceContainer name="content">
+            <block class="Trybugs\BasicCrud\Block\Index" name="Contact.index" template="Trybugs_BasicCrud::index.phtml"/>
+           <!--  <block name="product.info.sku">    
+            	<arguments>        
+            		<argument name="test_value" xsi:type="string">  
+            			11111
+            		</argument>    
+            	</arguments>
+            </block> -->
+        </referenceContainer>
+        
+    </body>
+</page>

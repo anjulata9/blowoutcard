@@ -1,4 +1,5 @@
-<?php
+<?php declare(strict_types=1);
+
 namespace Trybugs\ProductCustomCost\Setup\Patch\Data;
 
 use Magento\Eav\Setup\EavSetup;

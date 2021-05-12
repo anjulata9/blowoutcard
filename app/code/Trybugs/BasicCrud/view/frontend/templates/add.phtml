@@ -1,0 +1,76 @@
+ <h2>Add New Trybugs Contact</h2>
+ <?php 
+	if( !empty($block->getEditRecord())){
+	    $contacttData = $block->getEditRecord();
+	}else{
+	    $contacttData = null;
+	}
+
+    //print_r($contacttData);
+?>
+
+<form id="contact_form" class="form" method="post" action="<?php echo $block->getFormAction() ?>"  enctype="multipart/form-data">
+    <fieldset class="fieldset">
+    <input name="form_key" type="hidden" value="<?php echo $block->getFormKey();?>">
+    <input name="id" type="hidden" value="<?php  echo (isset($contacttData[0]['id']))?$contacttData[0]['id']:''?>">
+    <div class="field name required">
+        <label class="label" for="field-1"><span>Name</span></label>
+        <div class="control">
+            <input name="name" id="name" title="name" value="<?php echo (!empty($contacttData[0]['name']))? $contacttData[0]['name']:''?>"  class="input-text" type="text" data-validate='{"required":true}' />
+        </div>
+    </div>
+    <div class="field name required">
+        <label class="label" for="field-2"><span>content</span></label>
+        <div class="control">
+            <input name="content" id="contact-content" title="content" value="<?php echo (!empty($contacttData[0]['content']))? $contacttData[0]['content']:''?>" class="input-text" type="text"/>
+        </div>
+    </div>
+    <div class="field required">
+        <label class="label" for="field-3"><span>mobile</span></label>
+        <div class="control">
+            <input name="mobile" id="field-3" title="mobile" value="<?php echo (!empty($contacttData[0]['mobile']))? $contacttData[0]['mobile']:''?>"  class="input-text" type="text" data-validate='{"required":true}'/>
+        </div>
+    </div>
+    <div class="field required">
+        <label class="label" for="field-4"><span>status</span></label>
+        <div class="control">
+            <input name="status" id="status" title="status" value="<?php echo (!empty($contacttData[0]['status']))? $contacttData[0]['status']:''?>"  class="input-text" type="text" data-validate='{"required":true}'/>
+        </div>
+    </div>
+    <div class="field ">
+        <label class="field-label">
+            <span><?php echo __('Date')?></span>
+        </label>
+        <div class="field-control ">
+            <input class="control-text required-entry dateITA" name="date" id="datepicker" type="text" value="<?php echo (!empty($contacttData[0]['date']))? $contacttData[0]['date']:''?>">
+        </div>
+    </div>
+    <div class="field name required">
+        <label class="label" for="field-1"><span>image</span></label>
+        <div class="control">
+            <input name="image" id="image" title="image" value="<?php echo (!empty($contacttData[0]['image']))? $contacttData[0]['image']:''?>"  class="input-text" type="file" data-validate='{"required":true}'/>
+        </div>
+    </div>
+    </fieldset>
+    <input type="submit" value="submit">
+</form>
+<script type="text/javascript">
+    require(["jquery", "mage/calendar"], function ($) {
+        $('#datepicker').datepicker({
+                prevText: '&#x3c;zurück', prevStatus: '',
+                prevJumpText: '&#x3c;&#x3c;', prevJumpStatus: '',
+                nextText: 'Vor&#x3e;', nextStatus: '',
+                nextJumpText: '&#x3e;&#x3e;', nextJumpStatus: '',
+                monthNames: ['January', 'February', 'March', 'April', 'May', 'June',
+                    'July', 'August', 'September', 'October', 'November', 'December'],
+                monthNamesShort: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+                    'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                dayNames: ['Sunday ', 'Monday', 'Tuesday ', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+                dayNamesShort: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+                dayNamesMin: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+                showMonthAfterYear: true,
+                dateFormat: 'd/m/yy'
+            }
+        );
+    });
+</script>
