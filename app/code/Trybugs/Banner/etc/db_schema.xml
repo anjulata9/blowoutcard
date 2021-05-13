@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Created By: MageDelight Pvt. Ltd
+ */
+-->
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+   <table name="trybugs_homepage_banner" resource="default" engine="innodb" comment="Homepahe Banner Table">
+      <column xsi:type="smallint" name="id" padding="6" unsigned="false" nullable="false" identity="true" comment="ID" />
+      <column xsi:type="varchar" name="image_name" nullable="false" length="100" comment="Name" />
+      <column xsi:type="varchar" name="status" nullable="false" length="25" comment="status" />
+      <column xsi:type="timestamp" name="created_at" on_update="false" nullable="false" default="CURRENT_TIMESTAMP" comment="Creation Time"/>
+      <column xsi:type="timestamp" name="updated_at" on_update="true" nullable="false" default="CURRENT_TIMESTAMP" comment="Update Time"/>
+      <constraint xsi:type="primary" referenceId="PRIMARY">
+         <column name="id" />
+      </constraint>
+   </table>
+</schema>

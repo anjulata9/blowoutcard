@@ -1,0 +1,14 @@
+{
+    "trybugs_homepage_banner": {
+        "column": {
+            "id": true,
+            "image_name": true,
+            "status": true,
+            "created_at": true,
+            "updated_at": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    }
+}
