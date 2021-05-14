@@ -9,11 +9,27 @@ namespace Trybugs\Banner\Model\ResourceModel\Banner\Grid;
 
 use Magento\Framework\View\Element\UiComponent\DataProvider\Document as BannerModel;
 use Trybugs\Banner\Model\ResourceModel\Banner\Collection as BannerCollection;
+use Magento\Store\Model\StoreManagerInterface;
+use Magento\Store\Model\ScopeInterface;
 
 class Collection extends BannerCollection implements \Magento\Framework\Api\Search\SearchResultInterface
 {
 
     protected $aggregations;
+
+    /**
+     * Store manager
+     *
+     * @var \Magento\Store\Model\StoreManagerInterface
+     */
+    protected $_storeManager;
+
+    /**
+     * Store id of application
+     *
+     * @var integer
+     */
+    protected $_storeId;
 
     // @codingStandardsIgnoreStart
     public function __construct(
@@ -76,5 +92,31 @@ class Collection extends BannerCollection implements \Magento\Framework\Api\Sear
     public function setItems(array $items = null)
     {
         return $this;
+    }
+
+    /**
+     * Set store id
+     *
+     * @param integer $storeId
+     * @return $this
+     */
+    public function setStoreId($storeId)
+    {
+        $this->_storeId = $storeId;
+        return $this;
+    }
+
+    /**
+     * Return store id.
+     * If store id is not set yet, return store of application
+     *
+     * @return integer
+     */
+    public function getStoreId()
+    {
+        if (null === $this->_storeId) {
+            return $this->_storeManager->getStore()->getId();
+        }
+        return $this->_storeId;
     }
 }

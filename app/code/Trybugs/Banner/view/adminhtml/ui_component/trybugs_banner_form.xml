@@ -52,7 +52,25 @@
             <item name="label" xsi:type="string" translate="true">General Information</item>
             <item name="sortOrder" xsi:type="number">20</item>
          </item>
-      </argument>
+      </argument>      
+      <field name="image_name">
+          <argument name="data" xsi:type="array">
+              <item name="config" xsi:type="array">
+                  <item name="dataType" xsi:type="string">string</item>
+                  <item name="source" xsi:type="string">banner</item>
+                  <item name="label" xsi:type="string" translate="true">Image Name</item>
+                  <item name="visible" xsi:type="boolean">true</item>
+                  <item name="formElement" xsi:type="string">fileUploader</item>
+                  <item name="elementTmpl" xsi:type="string">ui/form/element/uploader/uploader</item>
+                  <item name="previewTmpl" xsi:type="string">Trybugs_Banner/image-preview</item>
+                  <item name="required" xsi:type="boolean">false</item>
+                  <item name="sortOrder" xsi:type="number">40</item>
+                  <item name="uploaderConfig" xsi:type="array">
+                      <item name="url" xsi:type="url" path="trybugs_banner/index/uploader"/>
+                  </item>
+              </item>
+          </argument>
+      </field>
       <field name="status">
          <argument name="data" xsi:type="array">
             <item name="config" xsi:type="array">
@@ -73,7 +91,7 @@
             </item>
          </argument>
       </field>
-      <field name="image_name">
+      <!-- <field name="image_name">
          <argument name="data" xsi:type="array">
             <item name="config" xsi:type="array">
                <item name="dataType" xsi:type="string">text</item>
@@ -83,8 +101,8 @@
                <item name="dataScope" xsi:type="string">image_name</item>
             </item>
          </argument>
-      </field>
-      <field name="status">
+      </field> -->
+     <!--  <field name="status">
          <argument name="data" xsi:type="array">
             <item name="config" xsi:type="array">
                <item name="dataType" xsi:type="string">text</item>
@@ -94,6 +112,6 @@
                <item name="dataScope" xsi:type="string">status</item>
             </item>
          </argument>
-      </field>
+      </field> -->
    </fieldset>
 </form>

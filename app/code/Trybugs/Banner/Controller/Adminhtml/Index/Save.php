@@ -17,7 +17,7 @@ class Save extends \Magento\Backend\App\Action
     /**
      * @var Banner
      */
-    protected $uiExamplemodel;
+    protected $trybugsBannermodel;
 
     /**
      * @var Session
@@ -26,16 +26,16 @@ class Save extends \Magento\Backend\App\Action
 
     /**
      * @param Action\Context $context
-     * @param Banner         $uiExamplemodel
+     * @param Banner         $trybugsBannermodel
      * @param Session        $adminsession
      */
     public function __construct(
         Action\Context $context,
-        Banner $uiExamplemodel,
+        Banner $trybugsBannermodel,
         Session $adminsession
     ) {
         parent::__construct($context);
-        $this->uiExamplemodel = $uiExamplemodel;
+        $this->trybugsBannermodel = $trybugsBannermodel;
         $this->adminsession = $adminsession;
     }
 
@@ -47,26 +47,29 @@ class Save extends \Magento\Backend\App\Action
     public function execute()
     {
         $data = $this->getRequest()->getPostValue();
-
+        $data['image_name'] = $data['image_name'][0]['url'];
+        /*echo "<pre>";
+        print_r($data);*/
         $resultRedirect = $this->resultRedirectFactory->create();
 
         if ($data) {
             $banner_id = $this->getRequest()->getParam('id');
             if ($banner_id) {
-                $this->uiExamplemodel->load($banner_id);
+                $this->trybugsBannermodel->load($banner_id);
             }
+           
 
-            $this->uiExamplemodel->setData($data);
+            $this->trybugsBannermodel->setData($data);
 
             try {
-                $this->uiExamplemodel->save();
+                $this->trybugsBannermodel->save();
                 $this->messageManager->addSuccess(__('The data has been saved.'));
                 $this->adminsession->setFormData(false);
                 if ($this->getRequest()->getParam('back')) {
                     if ($this->getRequest()->getParam('back') == 'add') {
                         return $resultRedirect->setPath('*/*/add');
                     } else {
-                        return $resultRedirect->setPath('*/*/edit', ['id' => $this->uiExamplemodel->getId(), '_current' => true]);
+                        return $resultRedirect->setPath('*/*/edit', ['id' => $this->trybugsBannermodel->getId(), '_current' => true]);
                     }
                 }
 

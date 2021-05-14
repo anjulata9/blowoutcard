@@ -39,15 +39,40 @@
         </arguments>
     </type>
     <type name="Trybugs\Banner\Ui\Component\MassAction\Status\Options">
-    <arguments>
-        <argument name="data" xsi:type="array">
-            <item name="urlPath" xsi:type="string">*/*/massStatus</item>
-            <item name="paramName" xsi:type="string">status</item>
-            <item name="confirm" xsi:type="array">
-                <item name="title" xsi:type="string" translatable="true">Change Status</item>
-                <item name="message" xsi:type="string" translatable="true">Are you sure you wan't to update selected items status?</item>
-            </item>
-        </argument>
-    </arguments>
-</type>
+        <arguments>
+            <argument name="data" xsi:type="array">
+                <item name="urlPath" xsi:type="string">*/*/massStatus</item>
+                <item name="paramName" xsi:type="string">status</item>
+                <item name="confirm" xsi:type="array">
+                    <item name="title" xsi:type="string" translatable="true">Change Status</item>
+                    <item name="message" xsi:type="string" translatable="true">Are you sure you wan't to update selected items status?</item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
+
+    <!--
+    /**
+     * Created By : Rohan Hapani
+     */
+    -->
+    <!-- Image Uploader -->
+    <virtualType name="VirtualTypeName" type="Magento\Catalog\Model\ImageUploader">
+       <arguments>
+          <argument name="baseTmpPath" xsi:type="string">logo/image</argument>
+          <argument name="basePath" xsi:type="string">logo/image</argument>
+          <argument name="allowedExtensions" xsi:type="array">
+             <item name="jpg" xsi:type="string">jpg</item>
+             <item name="jpeg" xsi:type="string">jpeg</item>
+             <item name="gif" xsi:type="string">gif</item>
+             <item name="png" xsi:type="string">png</item>
+          </argument>
+       </arguments>
+    </virtualType>
+    <type name="Trybugs\Banner\Controller\Adminhtml\Index\Uploader">
+       <arguments>
+          <argument name="imageUploader" xsi:type="object">VirtualTypeName</argument>
+       </arguments>
+    </type>
+    <!-- End Image Uploader -->
 </config>
