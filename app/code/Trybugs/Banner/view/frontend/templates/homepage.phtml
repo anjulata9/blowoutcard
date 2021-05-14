@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <body>
+
+      <!-- <h1><?php //echo $block->getMessage();?></h1>
+      <p>Some content here</p> -->
+
+    	<?php $collection = $block->getPostData(); ?>
+        <div class="carousel-wrap">
+          	<div class="owl-carousel">
+          		<?php $i=1;
+          			foreach($collection as $item){ ?>
+            			<div class="item"><img src="<?php echo $item['image_name'];?>" style="width:300px; min-height:300px;"></div>          
+      				<?php $i++; } ?>
+      		</div>
+        </div>
+    </body>
+</html>
+

@@ -52,7 +52,12 @@
             <item name="label" xsi:type="string" translate="true">General Information</item>
             <item name="sortOrder" xsi:type="number">20</item>
          </item>
-      </argument>      
+      </argument> 
+     <!--  <field name="entity_id" formElement="hidden">
+          <settings>
+              <dataType>text</dataType>
+          </settings>
+      </field>    -->  
       <field name="image_name">
           <argument name="data" xsi:type="array">
               <item name="config" xsi:type="array">

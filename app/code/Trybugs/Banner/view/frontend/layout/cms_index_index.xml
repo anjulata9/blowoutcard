@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Created By : Anjulata Gupta
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+	 <head>
+	 	<css src="Trybugs_Banner::css/source/_module.css"/>
+        <script src="Trybugs_Banner::js/owl.carousel.js" async="async" />
+        <script src="Trybugs_Banner::js/common.js" async="async" />
+    </head>
+    <body>
+        <referenceContainer name="content">
+             <block class="Trybugs\Banner\Block\HomePage" name="trybugs_banner_homepage_block" template="Trybugs_Banner::homepage.phtml"/>
+        </referenceContainer>
+        <!-- <referenceBlock name="content">
+            <block class="Magento\Framework\View\Element\Template"
+                name="proslider"
+                template="Trybugs_Banner::homepage.phtml" />
+        </referenceBlock> -->
+    </body>
+</page>
+

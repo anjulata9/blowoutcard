@@ -47,6 +47,9 @@ class Save extends \Magento\Backend\App\Action
     public function execute()
     {
         $data = $this->getRequest()->getPostValue();
+
+        $resultRedirect     = $this->resultRedirectFactory->create();
+        
         $data['image_name'] = $data['image_name'][0]['url'];
         /*echo "<pre>";
         print_r($data);*/
